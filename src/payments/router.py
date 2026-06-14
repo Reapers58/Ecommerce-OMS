@@ -2,6 +2,7 @@ from fastapi import APIRouter
 
 from src.payments.routers.create_payment import router as create_payment_router
 from src.payments.routers.get_payments import router as get_payments_router
+from src.payments.routers.get_payment_by_id import router as get_payment_by_id_router
 
 router = APIRouter(
     prefix="/payments",
@@ -10,3 +11,4 @@ router = APIRouter(
 
 router.include_router(create_payment_router)
 router.include_router(get_payments_router)
+router.include_router(get_payment_by_id_router)

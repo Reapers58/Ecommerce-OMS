@@ -8,7 +8,7 @@ from src.wishlist.schemas.wishlist_schema import WishlistSchema
 router = APIRouter()
 
 
-@router.post("/")
+@router.post("/add")
 def add_to_wishlist(
     wishlist_data: WishlistSchema,
     db: Session = Depends(get_db)

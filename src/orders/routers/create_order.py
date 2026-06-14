@@ -8,7 +8,7 @@ from src.orders.schemas.order_schema import OrderSchema
 router = APIRouter()
 
 
-@router.post("/")
+@router.post("/create")
 def create_order(
     order_data: OrderSchema,
     db: Session = Depends(get_db)

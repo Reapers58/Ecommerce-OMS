@@ -1,4 +1,6 @@
-from sqlalchemy import ForeignKey, Integer, Numeric, String, Text
+from datetime import datetime
+
+from sqlalchemy import DateTime, ForeignKey, Integer, Numeric, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.models.base import Base
@@ -26,6 +28,11 @@ class Order(Base):
 
     shipping_address: Mapped[str] = mapped_column(
         Text
+    )
+
+    order_date: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=datetime.utcnow
     )
 
     user = relationship(

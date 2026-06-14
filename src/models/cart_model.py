@@ -1,4 +1,5 @@
-from sqlalchemy import ForeignKey, Integer
+from datetime import datetime
+from sqlalchemy import DateTime, ForeignKey, Integer
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.models.base import Base
@@ -14,6 +15,11 @@ class Cart(Base):
 
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id")
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=datetime.utcnow
     )
 
     user = relationship(

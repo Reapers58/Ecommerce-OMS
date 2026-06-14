@@ -1,4 +1,6 @@
-from sqlalchemy import ForeignKey, Integer, Text
+from datetime import datetime
+
+from sqlalchemy import DateTime, ForeignKey, Integer, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from src.models.base import Base
@@ -26,6 +28,11 @@ class Review(Base):
 
     comment: Mapped[str] = mapped_column(
         Text
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=datetime.utcnow
     )
 
     user = relationship(

@@ -2,8 +2,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    APP_NAME: str = "E-Commerce OMS"
-    API_V1_PREFIX: str = "/api/v1"
+    APP_NAME: str
+    API_V1_PREFIX: str
+    DATABASE_URL: str
 
     model_config = SettingsConfigDict(
         env_file=".env",

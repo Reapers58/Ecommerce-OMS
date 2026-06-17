@@ -13,9 +13,11 @@ class User(Base):
     password: Mapped[str] = mapped_column(String(255))
     role: Mapped[str] = mapped_column(String(50))
     mobile: Mapped[str] = mapped_column(String(20))
+
     created_at: Mapped[datetime] = mapped_column(
     DateTime,
-    default=datetime.utcnow
+    default=datetime.utcnow,
+    nullable=True
     )
     
     seller = relationship(

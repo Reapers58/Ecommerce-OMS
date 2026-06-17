@@ -2,6 +2,9 @@ from fastapi import APIRouter
 
 from src.wishlist.routers.add_to_wishlist import router as add_to_wishlist_router
 from src.wishlist.routers.get_wishlist import router as get_wishlist_router
+from src.wishlist.routers.remove_wishlist_item import (
+    router as remove_wishlist_item_router
+)
 
 router = APIRouter(
     prefix="/wishlist",
@@ -10,3 +13,4 @@ router = APIRouter(
 
 router.include_router(add_to_wishlist_router)
 router.include_router(get_wishlist_router)
+router.include_router(remove_wishlist_item_router)

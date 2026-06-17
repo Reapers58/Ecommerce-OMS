@@ -1,4 +1,5 @@
 from datetime import date
+from typing import Optional
 from sqlalchemy import Boolean, Date, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -21,8 +22,9 @@ class Coupon(Base):
         Integer
     )
 
-    expiry_date: Mapped[date] = mapped_column(
-        Date
+    expiry_date: Mapped[Optional[date]] = mapped_column(
+        Date,
+        nullable=True
     )
     
     active: Mapped[bool] = mapped_column(

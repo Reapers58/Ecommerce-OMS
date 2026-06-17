@@ -13,12 +13,14 @@ The project provides APIs for authentication, categories, products, cart managem
 * Python 3
 * FastAPI
 * PostgreSQL
-* SQLAlchemy
+* SQLAlchemy 2.0
 * Alembic
 * Docker
+* Pydantic v2
 * pgAdmin
 * JWT Authentication
-* Argon2 Password Hashing
+* Passlib/Argon2 Password Hashing
+* Uvicorn
 
 ---
 
@@ -29,26 +31,44 @@ The project provides APIs for authentication, categories, products, cart managem
 * User Signup
 * User Login
 * JWT Token Generation
+* User Profile
+* Change Password
 
 ### Categories
 
 * Create Category
 * Get Categories
+* Update Category
+* Delete Category
 
 ### Products
 
 * Create Product
 * Get Products
+* Search Products
+* Filter by Category
+* Filter by Brand
+* Pagination
+* Sorting
+
+### Product Images
+
+* Upload Product Images
+* View Product Images
 
 ### Cart
 
 * Add To Cart
 * Get Cart
+* Remove Items
+* Clear Cart
 
 ### Orders
 
 * Create Order
 * Get Orders
+* Update Order Status
+* Cancel Orders
 
 ### Payments
 
@@ -59,11 +79,29 @@ The project provides APIs for authentication, categories, products, cart managem
 
 * Add To Wishlist
 * Get Wishlist
+* Remove Wishlist Items
 
 ### Reviews
 
 * Create Review
 * Get Reviews
+* Delete Reviews
+
+### Coupons
+
+* Create Coupons
+* Apply Coupons
+* Update Coupons
+* Delete Coupons
+
+### Dashboard
+
+* Admin Dashboard
+* Seller Dashboard
+* Customer Dashboard
+* Low Stock Products
+* Top Selling Products
+* Recent Orders
 
 ---
 
@@ -135,6 +173,13 @@ venv\Scripts\activate
 
 ```bash
 pip install -r requirements.txt
+
+```
+### Start PostgreSQL using Docker
+
+```bash
+docker compose up -d
+
 ```
 
 ### Run Application

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from src.database import get_db
@@ -20,11 +20,16 @@ def update_category(
         .first()
     )
 
-    if category:
-        category.category_name = category_data.category_name
-        category.description = category_data.description
+    if not category:
+        raise HTTPException(
+            status_code=404,
+            detail="Category not found"
+        )
 
-        db.commit()
-        db.refresh(category)
+    category.category_name = category_data.category_name
+    category.description = category_data.description
+
+    db.commit()
+    db.refresh(category)
 
     return category

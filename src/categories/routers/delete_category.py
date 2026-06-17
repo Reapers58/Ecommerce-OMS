@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from src.database import get_db
@@ -18,9 +18,14 @@ def delete_category(
         .first()
     )
 
-    if category:
-        db.delete(category)
-        db.commit()
+    if not category:
+        raise HTTPException(
+            status_code=404,
+            detail="Category not found"
+        )
+
+    db.delete(category)
+    db.commit()
 
     return {
         "message": "Category deleted successfully"
